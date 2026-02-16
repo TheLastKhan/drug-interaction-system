@@ -1,0 +1,27 @@
+# Data files (too large for GitHub)
+data/raw/TWOSIDES.csv.gz
+data/raw/*.zip
+data/processed/
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+venv/
+env/
+.venv/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
