@@ -18,6 +18,8 @@ env/
 # Jupyter
 .ipynb_checkpoints/
 
+# ignore all csv files 
+*.csv
 # IDE
 .vscode/
 .idea/
