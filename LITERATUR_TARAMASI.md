@@ -85,6 +85,25 @@ Makalelerde açıkça görülmektedir ki Derin Öğrenme ve GNN modelleri teorik
 
 ---
 
+### 🔍 Özel İnceleme: Web of Science (Sorgu Linkinden Elde Edilen Makaleler)
+
+Kullanıcının paylaştığı özel Web of Science filtreleme linki üzerinden yapılan incelemede, güncel (2022-2025) ve yüksek etkili 3 adet Derin Öğrenme / Makine Öğrenmesi makalesi öne çıkmaktadır. Bu makaleler, model başarısını artırmak için özellikle metin tabanlı (NLP) ve çok boyutlu verilerin entegrasyonuna değinmeleri bakımından projemize ışık tutmaktadır:
+
+1. **BP-DDI: Biyolojik Bilgi ve Farmakolojik Metne Dayalı DDI Tahmini (2022 - BIBM)**
+   - **Yöntem:** NLP (Metin Kodlama) ve Biyolojik Özellik Çıkarımı.
+   - **Odak:** DrugBank'ten alınan *farmakolojik metinlerin (Etkileşim Açıklaması, Etki Mekanizması, Toksisite vs.)* doğrudan modelin içerisine beslenmesi. Sadece kimyasal formüllerin ötesinde, metin bilgisinin model başarısını (0.90+ ACC) ne kadar kritik düzeyde artırdığı kanıtlanmıştır. 
+   - 💡 **Relevans:** Bizim projemizde de DrugBank altındaki `Interaction Description` metinlerinden doğrudan NLP ile label (increase/decrease/risk) çıkarma işlemi planlanmıştır! Bu makale, salt sayısal işlemlerdense metindeki "anlamı" almanın doğruluğunu akademik olarak tescillemektedir.
+
+2. **PHGL-DDI: DDI Tahmini İçin Ön-Eğitimli Hiyerarşik Grafik Öğrenme (Nisan 2025 - Expert Systems with Applications)**
+   - **Yöntem:** Self-supervised Contrastive Learning (Kendi Kendine Denetimli Kontrastlı Öğrenme) tabanlı Hiyerarşik GNN.
+   - **Odak:** İlaçların hem bireysel (molekül bazlı) özelliklerini hem de binlerce ilacın bulunduğu dev etkileşim ağındaki komşuluk ilişkilerini "hiyerarşik" olarak öğrenmek. Bu yöntem, modelin yalnızca ezber yapmasını engelleyerek "yeni ve test edilmemiş ilaçlar" ağa eklendiğinde daha yüksek başarı ve genelleme yeteneği sunmasını sağlamaktadır.
+
+3. **MFE-DDI: DDI Tahmini İçin Çok-Görüşlü Özellik Kodlama (Multi-view Feature Encoding) (2025 - Computational and Structural Biotechnology Journal)**
+   - **Yöntem:** Derin Öğrenme tabanlı Attention (Dikkat) Füzyon Ağları.
+   - **Odak:** Bir ilacı modellemek için tek bir parametre yerine onu 3 ana perspektifte (SMILES dizilimi + Moleküler Grafik Yapısı + Atomik Uzamsal Konum) aynı anda değerlendirmektir. Özellikler dikkat tabanlı ağlarda (attention-based) birleştirilir. Modeli GitHub'da herkese açmışlardır ve laboratuvardan yeni çıkmış "yeni onaylı ilaçlarda" dahi yüksek başarı göstermiştir.
+
+---
+
 ### 💻 Mevcut Önemli GitHub Projeleri (11 Proje):
 
 1. **Drug-drug-interaction-prediction ([mahdi-khosroabadi](https://github.com/mahdi-khosroabadi/Drug-drug-interaction-prediction))**
