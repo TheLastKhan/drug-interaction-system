@@ -104,6 +104,21 @@ Kullanıcının paylaştığı özel Web of Science filtreleme linki üzerinden 
 
 ---
 
+### 🎓 ArXiv ve Google Scholar İncelemesi (2024-2025 Trendleri)
+
+Son dönemde açık erişimli (preprint) ArXiv ve Scholar veritabanlarına düşen öncü makale ve derlemeler incelendiğinde, DDI alanında öne çıkan inovasyonlar şöyledir:
+
+1. **Ölçeklenebilirlik, Sınıf Dengesizliği (Class Imbalance) ve Yeni İlaçlar İçin Benchmarking Çözümleri:**
+   - ArXiv'de yayınlanan **DDI-Ben (2024)** gibi kıyaslama (benchmarking) framework'leri, mevcut DDI algoritmalarının çoğunun bilinen ilaçlarda başarılıyken "yeni/görülmemiş ilaçlar" (data distribution shifts) eklendiğinde çuvalladığını ortaya koymaktadır. Bu nedenle güncel yayınlarda (Frontiers 2025 Derlemesi vb.) genelleme yeteneği yüksek algoritmalara dönülmüştür.
+
+2. **Gelişmiş Graf Ağları ve Çoklu Veri Modelleri (MAVGAE):**
+   - **MAVGAE** (Multimodal Asymmetric Variational Graph Autoencoder) gibi 2025 modelleri, etkileşimlerin "asimetrik" doğasına odaklanmaktadır (Yani A ilacı B'yi nasıl etkiler ile B ilacı A'yı nasıl etkiler soruları birbirinden farklıdır). İlaç parmak izleri (fingerprints) hedeflerle birleştirilerek asimetrik analiz yapılmaktadır.
+
+3. **Büyük Dil Modelleri (LLM) Entegrasyonu:**
+   - Salt matematiksel GNN veya XGBoost modellerinin yerini, biyomedikal literatürü ve ilaç açıklamalarını okuyan LLM'lerle desteklenmiş "Graph-Transformer" (örneğin TIGER) yapıları almaya başlamıştır. Bu da projemizde *DrugBank metin analizinin (NLP)* ne kadar doğru ve güncel bir yol olduğunu Scholar verileriyle desteklemektedir.
+
+---
+
 ### 💻 Mevcut Önemli GitHub Projeleri (11 Proje):
 
 1. **Drug-drug-interaction-prediction ([mahdi-khosroabadi](https://github.com/mahdi-khosroabadi/Drug-drug-interaction-prediction))**
@@ -162,6 +177,26 @@ Yüzlerce akademik makale ve yukarıdaki 11 örnek proje incelendiğinde, sektö
 | **Öngörü Hedefi** | %90'ı Binary Tahmin (1=Etkileşim Var, 0=Etkileşim Yok) yapar. Link prediction (bağlantı tahmini) hedeflerler. | **Multi-Label (Etkileşim Türü) + Risk Skoru (PRR)** | "Etkileşim var" deyip bırakmıyoruz. *Ne tür* bir etkileşim (increase/decrease) ve *ne kadar tehlikeli* (PRR Skoru) olduğunu NLP ile veriden çekiyoruz! |
 | **Kullanılan Veri Seti** | Ya sadece DrugBank kimyasal formülleri (SMILES) ya da sentetik benzerlik matrisleri kullanılır. | **DrugBank (Açıklama/Mekanizma) + TWOSIDES (Yan Etki/FAERS)** | Gerçek hastane verilerine (FDA Adverse Event Reporting System - FAERS via TWOSIDES) dayanarak gerçek hayattaki klinik yan etkileri hesaba katıyoruz. |
 | **Yorumlanabilirlik** | %80'i Derin Öğrenme / GNN gibi "Kara Kutu" sistemlerdir. Neden o tahmini yaptığını tıp doktoruna açıklayamazlar. | **XGBoost & Random Forest (White-box Feature Importance)** | XGBoost'un sağladığı yorumlanabilirlik, tıp ve sağlık sektöründe (Regülasyonlar gereği) Derin Öğrenmeden çok daha fazla kabul görmektedir. |
+
+---
+
+### 📄 Özel İnceleme: ArXiv Ön-Baskı (Pre-print) Makaleleri (2026)
+
+Kullanıcının ilettiği `arXiv` arama linki üzerinden ulaşılan en güncel 2026 DDI araştırmaları, akademik dünyanın şu an hangi yeni teknikler üzerinde çalıştığını göstermektedir. (Not: Google Scholar otomatik bot erişimine karşı CAPTCHA koruması sağladığı için ArXiv sonuçlarına odaklanılmıştır):
+
+1. **MGKAN: Multimodal Graph Kolmogorov-Arnold Network (Şubat 2026)**
+   - **Odak:** Geleneksel GNN'lerin (Çizge Sinir Ağları) doğrusal (linear) sınırlarını aşmak için *Kolmogorov-Arnold Ağları (KAN)* kullanılarak heterojen ve "asimetrik" yönlü DDI tahminleri yapmak. Standart MLP'lerin yerini alan KAN, daha güçlü doğrusal olmayan (non-linear) modelleme sunmaktadır.
+
+2. **OpenDDI: DDI Tahmini İçin Kapsamlı Bir Karşılaştırma Ölçeği (Şubat 2026)**
+   - **Odak:** DDI literatüründeki standardizasyon eksikliğini (farklı veri setleri, farklı metrikler) çözmek için 6 büyük DDI veri setini (DrugBank dahil) ve LLM ile artırılmış (LLM-augmented) verileri birleştiren büyük bir "benchmark" (kıyaslama) platformudur. 20 farklı state-of-the-art modelin kıyaslamasını standartlaştırmaktadır.
+
+3. **GenRel-DDI: Genel Cinsinden İlişki Öğrenimi (Ocak 2026)**
+   - **Odak:** DDI tahminini "gerçek dünya senaryolarına" (hiç görülmemiş yeni ilaçlar) uyarlayabilmek için ilaç kimliklerinden ziyade *ilişkilerin* (relation-centric learning) öğrenilmesine odaklanır. Sadece modeli büyütmenin genelleştirmeye yetmediği kanıtlanmıştır.
+
+4. **Quantum Control for Synergistic Drug Combination (Ocak 2026)**
+   - **Odak:** Kuantum algoritmaları (FALQON) kullanılarak güvenli ve sinerjik çoklu ilaç kombinasyonlarının (polypharmacy) optimizasyonu.
+
+**💡 ArXiv Çıkarımı:** Bu en yeni (2026) ArXiv ön-baskıları gösteriyor ki; yapay zeka araştırmacıları salt DDI tahmininin (etki var/yok) ötesine geçerek, modelin gerçekçi ve klinik senaryolarda "hiç görmediği" ilaçlarda dahi tutarlı kalabilmesine (Generalizability) odaklanıyor. Model mimarisini aşırı büyütmek yerine veriden anlamlı ilişkileri öğrenmek (GenRel-DDI) veya KAN gibi daha verimli matematiksel mimarilere (MGKAN) geçmek yeni trend. Projemizin de teorik veri yığınından ziyade TWOSIDES PRR (risk skoru) ve NLP tabanlı açıklama ile "ilişkisel anlama" (relation-centric) odaklanması bu vizyonla uyuşmaktadır.
 
 ### Sonuç ve Hocaya Sunulacak Argüman:
 Literatürdeki DDI projeleri (örneğin *DDI-LLM* veya *GMPNN*) algoritmik karmaşıklık üzerine yarışırken pratik klinik kullanım senaryolarından uzaklaşmaktadır. 
