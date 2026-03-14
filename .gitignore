@@ -24,6 +24,7 @@ env/
 # IDE
 .vscode/
 .idea/
+.tools/
 
 # OS
 .DS_Store
